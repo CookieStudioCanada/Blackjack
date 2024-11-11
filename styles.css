@@ -1,0 +1,75 @@
+body {
+    min-height: 100vh;
+    max-height: 100vh;
+    overflow-y: hidden;
+    background-color: #1c1c1c;
+}
+
+.container {
+    height: 100vh;
+    overflow-y: hidden;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+#game-container {
+    max-width: 600px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 5px;
+    min-height: 40px;
+    max-height: 120px;
+    overflow-y: auto;
+}
+
+.card {
+    background-color: white;
+    color: black;
+    padding: 8px;
+    border-radius: 4px;
+    min-width: 30px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Style red suits */
+.card[data-suit="♥"],
+.card[data-suit="♦"] {
+    color: red;
+}
+
+/* Animation for new cards */
+@keyframes dealCard {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.card {
+    animation: dealCard 0.3s ease-out;
+}
+
+/* Style the bet input */
+#bet-amount {
+    width: 80px;
+    background-color: #ffffff;
+}
+
+/* Make badges more prominent */
+.badge {
+    padding: 0.5rem 0.7rem;
+}
