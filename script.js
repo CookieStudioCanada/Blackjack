@@ -177,16 +177,18 @@ document.getElementById("bet-btn").addEventListener("click", placeBet);
 function endGame(result) {
   message.textContent = result;
   
-  // Handle chip payouts
-  if (result.includes("You win")) {
-    chips += bet * 2; // Return original bet plus winnings
-  } else if (result.includes("tie")) {
-    chips += bet; // Return original bet on tie
+  // Gestion des gains
+  if (result.includes("gagnez")) {
+    chips += bet * 2; // Retourne la mise initiale plus les gains
+  } else if (result.includes("Égalité")) {
+    chips += bet; // Retourne la mise initiale en cas d'égalité
   }
-  // Update chip display
+  // En cas de perte, la mise est déjà perdue (déduite lors du bet)
+  
+  // Mise à jour de l'affichage des jetons
   document.getElementById("chip-count").textContent = chips;
   
-  // Disable game buttons
+  // Désactive les boutons de jeu
   document.getElementById("hit-btn").disabled = true;
   document.getElementById("stand-btn").disabled = true;
   document.getElementById("double-down-btn").disabled = true;
